@@ -3,7 +3,7 @@ Types::QueryType = GraphQL::ObjectType.define do
 
     field :user, types.String do
       type types[UserType]
-      argument :id, types.ID
+      argument :id, types[types.Int]
       resolve ->(obj, args, ctx) {
         if args[:id].present?
           User.where(id: args[:id])
@@ -25,7 +25,15 @@ Types::QueryType = GraphQL::ObjectType.define do
       }
     end
 
-
-
-
+    field :farmer, types.String do
+      type types[FarmerType]
+      argument :id, types.ID
+      resolve ->(obj, args, ctx) {
+        if args[:id].present?
+          Farmer.where(id: args[:id])
+        else
+          Farmer.all
+        end
+      }
+    end
 end

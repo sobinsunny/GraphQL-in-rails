@@ -4,6 +4,8 @@ ProductType = GraphQL::ObjectType.define do
   # `!` marks a field as "non-null"
   field :id, !types.ID
   field :quantity, !types.Int
-  field :quantity_in, !types.Int
+  field :quantity_in, !types.Int do 
+  	 argument :unit, !types.Float
+  end
   field :price, types.Float
 end
