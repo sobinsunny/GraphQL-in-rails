@@ -5,7 +5,7 @@ ProductType = GraphQL::ObjectType.define do
   field :id, !types.ID
   field :quantity, !types.Int
   field :quantity_in, !types.Int do 
-  	 argument :unit, !types.Float
+  	 argument :unit, types.Float
   end
   field :price, types.Float
 end
