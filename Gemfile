@@ -49,6 +49,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'factory_bot'
   gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
